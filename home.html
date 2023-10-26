@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>RPG</title>
+    <style>
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            --main-color: #fff;
+            --text-color: #fff;
+            color: var(--text-color);
+            background-color: #25161b;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+
+        .select {
+            margin: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #classe-select {
+            width: 500px;
+            height: 50px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        button {
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <canvas id="show-classes"></canvas>
+    </div>
+  
+    <div class="select">
+      <label for="classe-select"></label>
+      <select name="classes" id="classe-select">
+        <option value="" disabled selected>Sélectioner une classe svp</option>
+      </select>
+      <button onclick="begin();">Continuer</button>
+    </div>
+  
+  </section>
+
+
+
+    <script>
+        class Classe {
+            constructor(name, pseudo, pv, endurance, mana, attaques) {
+                this.name = name;
+                this.pseudo = pseudo;
+                this.pv = pv;
+                this.endurance = endurance;
+                this.mana = mana;
+                this.attaques = attaques;
+            }
+        }
+
+        class Competences {
+            constructor(name, damage, costEndurance, costMana) {
+                this.name = name;
+                this.damage = damage;
+                this.costEndurance = costEndurance;
+                this.costMana = costMana;
+            }
+        }
+
+        let sortWarrior = [
+            new Competences("Coup de  poing", 10, 10, 0),
+            new Competences("Épée à double tranchant", 30, 30, 0),
+            new Competences("La frappe du JO", 90, 100, 0),
+        ]
+
+        let classes = [
+            new Classe("mage", "mage-default", 1400, 0, 200, sortWarrior),
+            new Classe("guerrier", "guerrier-default", 2000, 100, 0, sortWarrior),
+            new Classe("archer", "archer-default", 1200, 0, 0, sortWarrior),
+        ];
+
+
+
+        // Page de choix de la classe START
+        const selectHTML = document.getElementById("classe-select");
+
+
+
+        let homeCanvas = document.getElementById('show-classes');
+        let ctxHome = homeCanvas.getContext('2d');
+        ctxHome.imageSmoothingEnabled = true;
+
+
+        const CANVAS_WIDTH = homeCanvas.width = 120;
+        const CANVAS_HEIGHT = homeCanvas.height = 120;
+
+        const spriteWidth = 64; //png widht / column
+        const spriteHeight = 64; // png height / row
+
+        const playerImage = new Image();
+        // playerImage.src = "";
+
+        selectHTML.addEventListener('change', (event) => {
+            switch (selectHTML.value) {
+                case classes[0].name:
+                    playerImage.src = "wizard.png" //mage
+                    // animate();
+                    console.log("classe 1");
+                    break;
+                case classes[1].name:
+                    playerImage.src = "warrior.png" 
+                    // animate();
+                    console.log("classe 2"); //warrior
+                    break;
+                case classes[2].name:
+                    playerImage.src = "archer.png" 
+                    console.log("classe 3"); //Archer
+                    break;
+                default:
+                    playerImage.src = "" 
+                    break;
+            }
+            // const result = document.querySelector('.result');
+            // result.textContent = `You like ${event.target.value}`;
+        });
+
+
+        function goToSelect() {
+
+            for (let classe of classes) {
+                let option = document.createElement("option");
+                option.setAttribute(`value`, `${classe.name}`);
+                option.innerText = `${classe.name}`;
+                selectHTML.appendChild(option);
+            }
+        };
+        goToSelect();
+
+
+
+        //player
+        let playerState = '';
+
+
+        let frameForStop = 60;
+        let gameFrame = 0;
+        const staggerFrames = 8;
+        const spriteAnimations = [];
+
+        const animationState = [
+        {
+            name: 'spell',
+            frames: 7,
+            line: 3
+        },
+        {
+            name: 'walk',
+            frames: 9,
+            line: 11,
+        },
+        {
+            name: 'attack',
+            frames: 6,
+            line: 15,
+        },
+        {
+            name: 'die',
+            frames: 6,
+            line: 20,
+        },
+        {
+            name: 'hit',
+            frames: 3,
+            line: 20,
+        }
+        ];
+
+        function animate() {
+            ctxHome.clearRect(0,0, CANVAS_WIDTH, CANVAS_HEIGHT);
+            let frameX = spriteWidth * 6;
+            let frameY = spriteHeight * 2;
+            ctxHome.drawImage(playerImage, frameX, frameY, spriteWidth, spriteHeight, 0, 0, 120, 120)
+
+
+    
+            requestAnimationFrame(animate);
+            
+        }
+        animate();
+
+
+
+    </script>
+    <!-- <script src="app.js"></script> -->
+    <!-- <script src="color.js"></script> -->
+</body>
+</html>

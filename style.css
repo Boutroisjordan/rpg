@@ -1,0 +1,360 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  --main-color: #fff;
+  --text-color: #fff;
+  color: var(--text-color);
+  background-color: #25161b;
+}
+
+.step-visible {
+  width: 100vw;
+  height: 100vh;
+}
+
+
+
+#step1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: no-repeat url(https://cdn.akamai.steamstatic.com/steam/apps/1369980/ss_df73a39517af5a3ff0a0a757cd2565b3b0868ac3.1920x1080.jpg?t=1627504725) ;
+  background-size: cover;
+  
+}
+
+.select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#classe-select {
+  width: 500px;
+  height: 50px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+button {
+  width: 100px;
+  height: 50px;
+}
+
+.home {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  height: 50vh;
+ }
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 350px;
+  grid-gap: 30px;
+  align-items: stretch;
+  margin: auto 0;
+  width: 100%;
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .container {
+    width: 540px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container {
+    width: 720px;
+  }
+}
+
+@media (min-width: 992px)
+{
+  .container {
+    width: 960px;
+  }
+}
+
+@media (min-width: 1200px)
+{
+  .container {
+    width: 1140px;
+  }
+}
+
+.container .mycard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+
+.container .mycard .img-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: 0.5s;
+}
+
+.container .mycard .img-box img {
+  width: 100%;
+}
+
+.container .mycard .content {
+  position: absolute;
+  width: 100%;
+  height: 60%;
+  bottom: -100%;
+  padding: 60px 20px 20px;
+  box-sizing: border-box;
+  text-align: center;
+  transition: 0.5s;
+}
+
+.container .mycard:hover .content {
+  bottom: 0;
+}
+
+.container .mycard:nth-child(1) .content {
+  background: linear-gradient(0deg, #195268, transparent);
+}
+
+.container .mycard:nth-child(2) .content {
+  background: linear-gradient(0deg, #513833, transparent);
+}
+
+.container .mycard:nth-child(3) .content {
+  background: linear-gradient(0deg, #352c2d, transparent);
+}
+
+.container .mycard:nth-child(4) .content {
+  background: linear-gradient(0deg, #494846, transparent);
+}
+
+.container .mycard .content h2 {
+  margin-bottom: 8px;
+  padding: 0;
+  color: #fff;
+  font-size: 22px;
+}
+
+.container .mycard .content h3 {
+  color: #ffeb3b;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.container .mycard .content p {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 14px;
+}
+
+.container .mycard .content ul {
+  display: flex;
+  margin: 20px 0 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+}
+
+.container .mycard .content ul li a {
+  color: #ccc;
+  padding: 0 10px;
+  font-size: 18px;
+  transition: 0.5s;
+}
+
+.container .mycard .content ul li a:hover {
+  color: #fff;
+}
+
+
+.hidden {
+  display: none;
+  visibility: hidden;
+ }
+
+
+
+ /* step 2 */
+
+ .scene {
+  width: 100%;
+  height: 85%;
+  background: no-repeat url(https://cdn.akamai.steamstatic.com/steam/apps/1369980/ss_df73a39517af5a3ff0a0a757cd2565b3b0868ac3.1920x1080.jpg?t=1627504725) ;
+  background-size: cover;
+  background-position: center;
+}
+
+ .header-step2 {
+   width: 100%;
+   height: 13%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+
+
+
+.timer {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.h3-container {
+  width: 60%;
+  text-align: right;
+}
+
+ .pv-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   width: 40%;
+   height: 100%;
+   background-color: gray;
+   border-radius: 25px;
+ }
+
+.pv-bg {
+  width: 60%;
+  height: 40px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+
+ .pv {
+   text-align: left;
+   width: 100%;
+   height: 40px;
+   background-color: red;
+   border-radius: 10px;
+
+ }
+
+ .main {
+   height: 82%;
+   display: flex;
+ }
+
+ .sort {
+   height: 15%;
+   display: grid;
+   grid-template-columns: repeat(3, minmax(300px, 500px));
+   gap: 10px;
+   justify-content: space-around;
+   align-items: center;
+   background-color: transparent;
+ }
+
+ .sort-card {
+   background-color: #fff;
+   height: 80%;
+   border-radius: 25px;
+   color: black;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }
+
+ 
+
+
+#canvas {
+    transform: translateX(-110%);
+    animation-name: none;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+.player-container {
+    height: 100%;
+    width: 50%;
+    /* background-color: white; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.bot-container {
+    width: 50%;
+    height: 100%;
+    /* background-color: red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+
+
+.bot {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#bot {
+    transform: translateX(100%);
+    animation-name: none;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+
+.msg-status {
+    height: 5%;
+    text-align: center;
+    color: #fff;
+}
+
+#msg-here {
+  font-size: 25px;
+  color: #fff;
+}
+
+@keyframes reveal {
+    from {
+        transform: translateX(-110%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes revealBot {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+

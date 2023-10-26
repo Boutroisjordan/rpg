@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>RPG</title>
+</head>
+<body>
+  <section id="step1" class="step-visible" >
+    <div class="home">
+      <div class="container">
+        <div class="mycard warrior" id="one">
+          <div class="img-box">
+            <img src="http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/98743367cf0222c.png">
+          </div>
+          <div class="content">
+            <h2>Warrior</h2>
+            <h3>Mêléer</h3>
+            <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>
+          </div>
+        </div>
+        <div class="mycard" id="two">
+          <div class="img-box">
+            <img src="http://pixelartmaker-data-78746291193.nyc3.digitaloceanspaces.com/image/1d474156604dfc7.png">
+          </div>
+          <div class="content">
+            <h2>Mage</h2>
+            <h3>Distance</h3>
+            <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>
+          </div>
+        </div>
+        <div class="mycard" id="three">
+          <div class="img-box">
+            <img src="https://www.pinclipart.com/picdir/big/349-3494032_oc-an-archer-fire-emblem-archer-pixel-art.png">
+          </div>
+          <div class="content">
+            <h2>Archer</h2>
+            <h3>Distance</h3>
+            <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="select">
+      <label for="classe-select"></label>
+      <select name="classes" id="classe-select">
+        <option value="" disabled selected>Sélectioner une classe svp</option>
+      </select>
+      <button onclick="begin();">Continuer</button>
+    </div>
+  
+  </section>
+
+  <!-- combat -->
+  <section id="step2" class="hidden">
+
+    <div class="scene"> 
+      <div class="header-step2">
+        <div class="pv-container">
+          <div class="h3-container">
+            <h3 id="info-pv-player">PV</h3>
+          </div>
+          <div class="pv-bg">
+            <div class="pv" id="pv-p1">
+  
+            </div>
+          </div>
+        </div>
+
+        <div class="timer">
+          <h2 id="timer-count"></h2>
+        </div>
+
+        <div class="pv-container">
+
+          <div class="h3-container">
+            <h3 id="info-pv-bot">PV</h3>
+          </div>
+
+          <div class="pv-bg">
+            <div class="pv" id="pv-bot">
+  
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- scène de combat -->
+      <div class="main">
+
+        <div class="player-container">
+            <canvas id="canvas"></canvas>
+        </div>
+
+        <div class="bot-container">
+            <canvas id="bot"></canvas>
+        </div>
+      </div>
+
+      <div class="msg-status">
+        <p id="msg-here"></p>
+      </div>
+    </div>
+    
+
+    <!-- les compétences -->
+    <div class="sort">
+      <!-- mettre 4 cards avec les sort (cliquable) avec une classe qui les rend incliquable quand ce n'est pas leur tour -->
+      <div class="sort-card" id="card1" >
+        sort 1 
+      </div>
+
+      <div class="sort-card" id="card2" >
+        sort 2
+      </div>
+
+      <div class="sort-card" id="card3">
+        sort 3
+      </div>
+
+      <!-- <div class="sort-card">
+        sort 4
+      </div> -->
+    </div>
+  </section>
+
+
+    <script src="app.js"></script>
+    <!-- <script src="color.js"></script> -->
+</body>
+</html>
